@@ -10,23 +10,7 @@ O **CRIPTOID** é uma aplicação web simples de criptomoedas. Ao clicar em **Mo
 
 ---
 
-## Arquitetura (fluxograma)
-
-## Arquitetura (fluxograma)
-
-```mermaid
-flowchart LR
-  U[Usuário] --> FE[Frontend]
-  FE --> API[API Principal]
-  API --> QS[Quotes Service]
-  QS --> YF[Yahoo Finance]
-  API --> PG[(Postgres)]
-
-
-
-Repositórios do projeto
-
-Substitua SEU_USUARIO pelo seu usuário do GitHub:
+## Repositórios do projeto
 
 Frontend (este): https://github.com/thebernasconi/criptoid-frontend
 
@@ -34,7 +18,7 @@ API Principal: https://github.com/thebernasconi/criptoid-api
 
 API Secundária (Quotes Service): https://github.com/thebernasconi/criptoid-quotes-service
 
-Rotas (GET/POST/PUT/DELETE) chamadas pela Interface
+## Rotas (GET/POST/PUT/DELETE) chamadas pela Interface
 
 A interface chama a API Principal via /api/... (proxy do Nginx):
 
@@ -53,7 +37,7 @@ Adiciona favorito (ex.: BTC-USD).
 DELETE /api/v1/favorites/{symbol}
 Remove favorito (desfavoritar).
 
-Pré-requisitos
+## Pré-requisitos
 
 Docker Desktop instalado e funcionando
 
@@ -71,8 +55,8 @@ Portas livres no host:
 
 Importante: as instruções abaixo rodam SEM docker compose (containers via docker run).
 
-Como rodar o projeto completo (passo a passo, para iniciantes)
-0) Estrutura recomendada no seu computador
+## Como rodar o projeto completo (passo a passo, para iniciantes)
+## 0) Estrutura recomendada no seu computador
 
 Crie uma pasta para o projeto e clone os 3 repositórios dentro dela:
 
@@ -81,14 +65,14 @@ CRIPTOID/
   criptoid-api/
   criptoid-quotes-service/
 
-1) Criar a network e o volume (apenas 1 vez)
+## 1) Criar a network e o volume (apenas 1 vez)
 
 Abra PowerShell e execute:
 
 docker network create criptoid-net
 docker volume create criptoid_pgdata
 
-2) Subir o Postgres
+## 2) Subir o Postgres
 docker run -d --name criptoid-db --network criptoid-net `
   --restart unless-stopped `
   -e POSTGRES_DB=criptoid `
@@ -102,7 +86,7 @@ Checar se está rodando:
 
 docker ps
 
-3) Build + Run da API Secundária (Quotes Service)
+## 3) Build + Run da API Secundária (Quotes Service)
 
 Entre na pasta do quotes service:
 
@@ -125,7 +109,7 @@ Teste de saúde:
 
 curl http://localhost:9000/health
 
-4) Build + Run da API Principal
+## 4) Build + Run da API Principal
 
 Entre na pasta da API principal:
 
@@ -156,7 +140,7 @@ Swagger (documentação da API principal):
 
 http://localhost:8000/docs
 
-5) Build + Run do Frontend (este repositório)
+## 5) Build + Run do Frontend (este repositório)
 
 Entre na pasta do frontend:
 
