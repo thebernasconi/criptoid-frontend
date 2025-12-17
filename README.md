@@ -9,6 +9,7 @@ O **CRIPTOID** é uma aplicação web simples de criptomoedas. Ao clicar em **Mo
 > Este repositório contém **apenas o Frontend** (SPA servida por Nginx). A API Principal e a API Secundária ficam em repositórios separados.
 
 ---
+<img width="1018" height="283" alt="image" src="https://github.com/user-attachments/assets/452d11da-9c65-422e-bafb-5fbcbf7c0b9b" />
 
 ## Repositórios do projeto
 
