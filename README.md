@@ -12,15 +12,17 @@ O **CRIPTOID** é uma aplicação web simples de criptomoedas. Ao clicar em **Mo
 
 ## Arquitetura (fluxograma)
 
+## Arquitetura (fluxograma)
+
 ```mermaid
 flowchart LR
-  U[Usuário / Browser] -->|HTTP| FE[Frontend (Nginx + SPA)\n:8080]
+  U[Usuário] --> FE[Frontend]
+  FE --> API[API Principal]
+  API --> QS[Quotes Service]
+  QS --> YF[Yahoo Finance]
+  API --> PG[(Postgres)]
 
-  FE -->|/api/* (proxy)| API[API Principal (FastAPI)\n:8000]
-  API -->|HTTP| QS[API Secundária Quotes Service (Node)\n:9000]
-  QS -->|HTTP| YF[API Externa: Yahoo Finance]
 
-  API -->|SQL| PG[(PostgreSQL\n:5432)]
 
 Repositórios do projeto
 
